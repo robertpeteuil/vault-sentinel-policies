@@ -1,0 +1,18 @@
+import "time"
+
+# Expect requests to only happen during work days (Monday through Friday)
+# 0 for Sunday and 6 for Saturday
+workdays = rule {
+    time.now.weekday > 0 and time.now.weekday < 6
+}
+
+# Expect requests to only happen during work hours (8:00 am - 8:00 pm EDT)
+# Note that times must be given in UTC which is NY time + 4 hours
+# when daylight savings is in effect, otherwise is NY time + 5 hours.
+workhours = rule {
+    time.now.hour >= 12
+}
+
+main = rule {
+    workdays and workhours
+}
