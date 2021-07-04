@@ -1,6 +1,8 @@
 # Vault Sentinel Policies
 
-Endpoint governing policies:
+More Vault Sentinel examples in the [Vault Guides](https://github.com/hashicorp/vault-guides/tree/master/governance/sentinel) Repo.
+
+Example Endpoint governing policies:
 
 1. `validate_zip_codes` validates that any key named "zipcode", "zip_code", or "zip-code" contains a valid 5-digit U.S. zipcode.  EGP Policy, paths = secret/*
 2. `validate_state_codes` validates that any key named "state" contains a valid U.S. state code.  EGP Policy, paths = secret/*
